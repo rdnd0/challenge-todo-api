@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 4000;
 const publicDomain = process.env.PUBLIC_DOMAIN || 'http://localhost:3000'
 
-const config = require('./config/DB');
+const config = require('./config/db');
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.use(cors({
   origin: [publicDomain]
 }));
 
-app.use('/api/v1', todoRoute);
+app.use('/api', todoRoute);
 
 const server = app.listen(port, function(){
   console.log('Listening on port ' + port);
